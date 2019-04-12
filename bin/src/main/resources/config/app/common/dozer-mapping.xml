@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE mappings PUBLIC "-//DOZER//DTD MAPPINGS//EN" "http://dozer.sourceforge.net/dtd/dozerbeanmapping.dtd"> -->
+<!-- <mappings> -->
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+    <configuration>
+        <stop-on-errors>false</stop-on-errors>
+        <custom-converters>
+            <converter
+                    type="com.cg.hkrbudgeting.general.common.mapper.StringToEnumConverter">
+                <class-a map-null="false">java.lang.String</class-a>
+                <class-b map-null="false">com.cg.hkrbudgeting.budgetingmanagement.dataaccess.api.enums.BusinessEnum
+                </class-b>
+            </converter>
+        </custom-converters>
+        <copy-by-references>
+            <copy-by-reference>java.lang.Long</copy-by-reference>
+            <copy-by-reference>java.lang.Integer</copy-by-reference>
+            <copy-by-reference>java.lang.Number</copy-by-reference>
+            <copy-by-reference>java.time.Instant</copy-by-reference>
+        </copy-by-references>
+    </configuration>
+    <mapping map-null="false">
+        <class-a>com.cg.hkrbudgeting.budgetingmanagement.common.api.to.FinanceplanPosTo</class-a>
+        <class-b>com.cg.hkrbudgeting.budgetingmanagement.dataaccess.api.FinanceplanPosEntity</class-b>
+        <field><!-- java.util.List to java.util.List -->
+            <a>children</a>
+            <b>children</b>
+            <a-hint>com.cg.hkrbudgeting.budgetingmanagement.common.api.to.FinanceplanPosTo</a-hint>
+            <b-hint>com.cg.hkrbudgeting.budgetingmanagement.dataaccess.api.FinanceplanPosEntity</b-hint>
+        </field>
+    </mapping>
+    <mapping map-null="false">
+        <class-a>com.cg.hkrbudgeting.budgetingmanagement.common.api.to.FunctionTo</class-a>
+        <class-b>com.cg.hkrbudgeting.budgetingmanagement.dataaccess.api.FunctionEntity</class-b>
+        <field><!-- java.util.List to java.util.List -->
+            <a>children</a>
+            <b>children</b>
+            <a-hint>com.cg.hkrbudgeting.budgetingmanagement.common.api.to.FunctionTo</a-hint>
+            <b-hint>com.cg.hkrbudgeting.budgetingmanagement.dataaccess.api.FunctionEntity</b-hint>
+        </field>
+    </mapping>
+    <mapping map-null="false">
+        <class-a>com.cg.hkrbudgeting.budgetingmanagement.common.api.to.GroupingTo</class-a>
+        <class-b>com.cg.hkrbudgeting.budgetingmanagement.dataaccess.api.GroupingEntity</class-b>
+        <field><!-- java.util.List to java.util.List -->
+            <a>children</a>
+            <b>children</b>
+            <a-hint>com.cg.hkrbudgeting.budgetingmanagement.common.api.to.GroupingTo</a-hint>
+            <b-hint>com.cg.hkrbudgeting.budgetingmanagement.dataaccess.api.GroupingEntity</b-hint>
+        </field>
+    </mapping>
+    <mapping map-null="false">
+        <class-a>com.cg.hkrbudgeting.budgetingmanagement.common.api.to.ChapterGroupingTo</class-a>
+        <class-b>com.cg.hkrbudgeting.budgetingmanagement.dataaccess.api.ChapterGroupingEntity</class-b>
+        <field><!-- java.util.List to java.util.List -->
+            <a>children</a>
+            <b>children</b>
+            <a-hint>com.cg.hkrbudgeting.budgetingmanagement.common.api.to.ChapterGroupingTo</a-hint>
+            <b-hint>com.cg.hkrbudgeting.budgetingmanagement.dataaccess.api.ChapterGroupingEntity</b-hint>
+        </field>
+    </mapping>
+    <mapping map-null="false">
+    <class-a>com.cg.hkrbudgeting.budgetingmanagement.common.api.to.FileTo</class-a>
+    <class-b>com.cg.hkrbudgeting.budgetingmanagement.dataaccess.api.FileEntity</class-b>
+    <field-exclude><!-- java.util.List to java.util.List -->
+        <a>file</a>
+        <b>file</b>
+    </field-exclude>
+    </mapping>
+</mappings>

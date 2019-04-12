@@ -1,0 +1,67 @@
+package com.cg.hkrbudgeting.budgetingmanagement.dataaccess.api.enums;
+
+import org.json.JSONObject;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public enum FinanceplanPosType implements BusinessEnum{
+
+    MAIN_POSITION("Hauptposition", 1),
+    SUB_POSITION_1("Unterposition1", 2),
+    SUB_POSITION_2("Unterposition2", 3),
+    POSITION("Position", 4);
+
+    //to import SQL must be index of enum, which start from 0
+    private String name;
+
+    private Integer id;
+
+    FinanceplanPosType(String name, Integer id) {
+
+        this.name = name;
+        this.id = id;
+    }
+
+    @Override
+    public String getName() {
+
+        return name;
+    }
+
+    @Override
+    public Integer getId() {
+
+        return id;
+    }
+
+    @Override
+    public BusinessEnum findByName(String name) {
+
+        return Arrays.stream(FinanceplanPosType.values()).filter(value -> value.getName().equals(name)).findAny()
+                .orElse(null);
+    }
+
+    @Override
+    public BusinessEnum findById(Integer id) {
+
+        return Arrays.stream(FinanceplanPosType.values()).filter(value -> value.getId().equals(id)).findAny()
+                .orElse(null);
+    }
+
+    public static List<String> getAllValues() {
+
+        return Arrays.stream(FinanceplanPosType.values()).map(value -> value.toString()).collect(Collectors.toList());
+    }
+
+    @Override
+    public String toString() {
+
+        JSONObject json = new JSONObject();
+        json.put("name",name);
+        json.put("id", id);
+
+        return json.toString();
+    }
+}
