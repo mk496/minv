@@ -2,9 +2,9 @@ package com.cg.mobinv.mobileinventory.common.api.to;
 
 import org.apache.olingo.odata2.api.annotation.edm.*;
 
-@EdmEntityType(name = "AdministrationUnitType")
-@EdmEntitySet(name = "AdministrationUnitTypes")
-public class AdministrationUnitTypeTo {
+@EdmEntityType(name = "Material")
+@EdmEntitySet(name = "Materials")
+public class MaterialTo {
 
     @EdmKey
     @EdmProperty

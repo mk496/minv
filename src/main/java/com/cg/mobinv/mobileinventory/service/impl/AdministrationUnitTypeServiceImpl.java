@@ -2,7 +2,7 @@ package com.cg.mobinv.mobileinventory.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.cg.mobinv.mobileinventory.common.api.to.AdministrationUnitTypeTo;
+import com.cg.mobinv.mobileinventory.common.api.to.MaterialTo;
 import com.cg.mobinv.mobileinventory.logic.api.AdministrationUnitTypeLogic;
 import com.cg.mobinv.mobileinventory.service.api.AdministrationUnitTypeService;
 
@@ -19,19 +19,19 @@ public class AdministrationUnitTypeServiceImpl implements AdministrationUnitType
     private AdministrationUnitTypeLogic administrationUnitTypeLogic;
 
     @Override
-    public AdministrationUnitTypeTo createEntity(AdministrationUnitTypeTo to) {
+    public MaterialTo createEntity(MaterialTo to) {
 
         return this.administrationUnitTypeLogic.create(to);
     }
 
     @Override
-    public AdministrationUnitTypeTo createEmptyEntity() {
+    public MaterialTo createEmptyEntity() {
 
         return this.administrationUnitTypeLogic.createEmpty();
     }
 
     @Override
-    public AdministrationUnitTypeTo updateEntity(AdministrationUnitTypeTo to) {
+    public MaterialTo updateEntity(MaterialTo to) {
 
         return this.administrationUnitTypeLogic.update(to);
     }
@@ -44,25 +44,25 @@ public class AdministrationUnitTypeServiceImpl implements AdministrationUnitType
     }
 
     @Override
-    public List<AdministrationUnitTypeTo> readAllEntities() {
+    public List<MaterialTo> readAllEntities() {
 
         return this.administrationUnitTypeLogic.readAll();
     }
 
     @Override
-    public AdministrationUnitTypeTo readEntity(Map<String, Object> keys) {
+    public MaterialTo readEntity(Map<String, Object> keys) {
 
         return this.administrationUnitTypeLogic.readById((Long) keys.get(this.KEY));
     }
 
     @Override
-    public <S> List<S> readRelatedEntities(AdministrationUnitTypeTo source, Class<S> targetClass) {
+    public <S> List<S> readRelatedEntities(MaterialTo source, Class<S> targetClass) {
 
         return this.administrationUnitTypeLogic.readRelatedEntities(source, targetClass);
     }
     
     @Override
-    public <S> S readRelatedEntity(AdministrationUnitTypeTo source, Class<S> targetClass) {
+    public <S> S readRelatedEntity(MaterialTo source, Class<S> targetClass) {
 
         return this.administrationUnitTypeLogic.readRelatedEntity(source, targetClass);
     }
@@ -70,11 +70,11 @@ public class AdministrationUnitTypeServiceImpl implements AdministrationUnitType
     @Override
     public Class<?> getToClassType() {
 
-        return AdministrationUnitTypeTo.class;
+        return MaterialTo.class;
     }
 
 	@Override
-	public AdministrationUnitTypeTo setRelation(AdministrationUnitTypeTo source, Object nestedObject) {
+	public MaterialTo setRelation(MaterialTo source, Object nestedObject) {
 
 		return this.administrationUnitTypeLogic.setRelation(source, nestedObject);
 	}

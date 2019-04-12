@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.AdministrationUnitType\"")
-public class AdministrationUnitTypeEntity {
+public class MaterialEntity {
 
     private static final long serialVersionUID = 1L;
 
