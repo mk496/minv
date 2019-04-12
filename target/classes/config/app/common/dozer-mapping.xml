@@ -8,9 +8,9 @@
 		<stop-on-errors>false</stop-on-errors>
 		<custom-converters>
 			<converter
-				type="com.cg.hkrbudgeting.general.common.mapper.StringToEnumConverter">
+				type="com.cg.mobinv.general.common.mapper.StringToEnumConverter">
 				<class-a map-null="false">java.lang.String</class-a>
-				<class-b map-null="false">com.cg.hkrbudgeting.budgetingmanagement.dataaccess.api.enums.BusinessEnum
+				<class-b map-null="false">com.cg.mobinv.mobileinventory.dataaccess.api.enums.BusinessEnum
 				</class-b>
 			</converter>
 		</custom-converters>
@@ -22,8 +22,8 @@
 		</copy-by-references>
 	</configuration>
     <mapping map-null="false">
-    <class-a>com.cg.hkrbudgeting.budgetingmanagement.common.api.to.FileTo</class-a>
-    <class-b>com.cg.hkrbudgeting.budgetingmanagement.dataaccess.api.FileEntity</class-b>
+    <class-a>com.cg.mobinv.mobileinventory.common.api.to.FileTo</class-a>
+    <class-b>com.cg.mobinv.mobileinventory.dataaccess.api.FileEntity</class-b>
     <field-exclude><!-- java.util.List to java.util.List -->
         <a>file</a>
         <b>file</b>

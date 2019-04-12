@@ -1,0 +1,11 @@
+package com.cg.mobinv.mobileinventory.service.api;
+
+import org.apache.olingo.odata2.annotation.processor.core.datasource.DataSource.BinaryData;
+
+import com.cg.mobinv.mobileinventory.common.api.to.FileTo;
+
+public interface FileService extends ODataOperationService<FileTo>{
+	
+	BinaryData readBinaryData(Object mediaEnity);
+	FileTo writeBinaryData(BinaryData mediaData, FileTo mediaEntity);
+}
