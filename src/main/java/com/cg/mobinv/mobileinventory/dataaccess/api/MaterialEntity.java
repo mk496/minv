@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.AdministrationUnitType\"")
+@Table(name = "\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.Material\"")
 public class MaterialEntity {
 
     private static final long serialVersionUID = 1L;
 
     @javax.persistence.Id
-    @SequenceGenerator(name = "S_AdministrationUnitType", sequenceName = "\"hkrbudgetingdb.db::S_AdministrationUnitType\"", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "S_AdministrationUnitType")
+    @SequenceGenerator(name = "S_Material", sequenceName = "\"hkrbudgetingdb.db::S_Material\"", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "S_Material")
     private Long id;
 
     @Nationalized

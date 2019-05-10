@@ -3,7 +3,7 @@ package com.cg.mobinv.mobileinventory.logic.impl;
 import com.cg.mobinv.mobileinventory.common.api.to.MaterialTo;
 import com.cg.mobinv.mobileinventory.dataaccess.api.MaterialEntity;
 import com.cg.mobinv.mobileinventory.dataaccess.api.repository.MaterialEntityRepository;
-import com.cg.mobinv.mobileinventory.logic.api.AdministrationUnitTypeLogic;
+import com.cg.mobinv.mobileinventory.logic.api.MaterialLogic;
 import com.google.common.collect.Lists;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class AdministrationUnitTypeLogicImpl implements AdministrationUnitTypeLogic {
+public class MaterialLogicImpl implements MaterialLogic {
 
     @Inject
     private MaterialEntityRepository materialEntityRepository;
