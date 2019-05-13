@@ -32,7 +32,7 @@ public class RequisitionHeaderEntity {
 	private Integer newAttr;
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL},
-			mappedBy = "\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionHeader\"")
+			mappedBy = "requisitionHeader")
 	private List<RequisitionItemEntity> items;
 
 	public RequisitionHeaderEntity() {}

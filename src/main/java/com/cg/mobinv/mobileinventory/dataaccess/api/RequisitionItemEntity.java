@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -11,7 +12,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Nationalized;
 
 @Entity
-@Table(name = "\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem\"")
+@Table(name = "\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem\"")//, uniqueConstraints = @UniqueConstraint(columnNames = {"\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionHeader_id\""}))
 public class RequisitionItemEntity {
 	
 	@javax.persistence.Id
@@ -32,17 +33,18 @@ public class RequisitionItemEntity {
 	private String unit;
 	
 	@ManyToOne
-	private RequisitionHeaderEntity myRequisitionItem;
+	@JoinColumn(name="requisitionHeader_id")
+	private RequisitionHeaderEntity requisitionHeader;
 	
 	public RequisitionItemEntity() {}
 
 	public RequisitionItemEntity(Long id, String itemDesc, int quantity, String unit,
-			RequisitionHeaderEntity myRequisitionItem) {
+			RequisitionHeaderEntity requisitionHeader) {
 		this.id = id;
 		this.itemDesc = itemDesc;
 		this.quantity = quantity;
 		this.unit = unit;
-		this.myRequisitionItem = myRequisitionItem;
+		this.requisitionHeader = requisitionHeader;
 	}
 
 	public Long getId() {
@@ -77,12 +79,12 @@ public class RequisitionItemEntity {
 		this.unit = unit;
 	}
 
-	public RequisitionHeaderEntity getMyRequisitionItem() {
-		return myRequisitionItem;
+	public RequisitionHeaderEntity getRequisitionHeader() {
+		return requisitionHeader;
 	}
 
-	public void setMyRequisitionItem(RequisitionHeaderEntity myRequisitionItem) {
-		this.myRequisitionItem = myRequisitionItem;
+	public void setRequisitionHeader(RequisitionHeaderEntity requisitionHeader) {
+		this.requisitionHeader = requisitionHeader;
 	}
 	
 

@@ -1,5 +1,7 @@
 package com.cg.mobinv.mobileinventory.common.api.to;
 
+import java.io.Serializable;
+
 import org.apache.olingo.odata2.api.annotation.edm.EdmEntitySet;
 import org.apache.olingo.odata2.api.annotation.edm.EdmEntityType;
 import org.apache.olingo.odata2.api.annotation.edm.EdmKey;
@@ -7,8 +9,9 @@ import org.apache.olingo.odata2.api.annotation.edm.EdmProperty;
 
 @EdmEntityType(name = "RequisitionItem")
 @EdmEntitySet(name = "RequisitionItems")
-public class RequisitionItemTo {
+public class RequisitionItemTo implements Serializable {
 	
+
 	@EdmKey
     @EdmProperty
     private Long id;
@@ -22,6 +25,9 @@ public class RequisitionItemTo {
 	@EdmProperty
 	private String unit;
 	
+	@EdmProperty
+	private String requisitionHeader;
+
 	public RequisitionItemTo() {}
 
 	public RequisitionItemTo(Long id, String itemDesc, int quantity, String unit) {
@@ -63,5 +69,13 @@ public class RequisitionItemTo {
 		this.unit = unit;
 	}
 	
+	
+	public String getRequisitionHeader() {
+		return requisitionHeader;
+	}
+
+	public void setRequisitionHeader(String requisitionHeader) {
+		this.requisitionHeader = requisitionHeader;
+	}
 
 }

@@ -8,10 +8,10 @@ import javax.inject.Inject;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Component;
 
-import com.cg.mobinv.mobileinventory.common.api.to.RequisitionHeaderTo;
 import com.cg.mobinv.mobileinventory.common.api.to.RequisitionItemTo;
 import com.cg.mobinv.mobileinventory.dataaccess.api.RequisitionHeaderEntity;
 import com.cg.mobinv.mobileinventory.dataaccess.api.RequisitionItemEntity;
+import com.cg.mobinv.mobileinventory.dataaccess.api.repository.RequisitionHeaderRepository;
 import com.cg.mobinv.mobileinventory.dataaccess.api.repository.RequisitionItemRepository;
 import com.cg.mobinv.mobileinventory.logic.api.RequisitionItemLogic;
 import com.google.common.collect.Lists;
@@ -21,6 +21,9 @@ public class RequisitionItemLogicImpl implements RequisitionItemLogic {
 
 	@Inject
 	private RequisitionItemRepository itemRepository;
+	
+	@Inject
+	private RequisitionHeaderRepository requisitionRepository;
 	
 	@Inject
     private Mapper mapper;
@@ -50,11 +53,16 @@ public class RequisitionItemLogicImpl implements RequisitionItemLogic {
 	}
 
 	@Override
-	public RequisitionItemTo create(RequisitionItemTo to) {
+	public RequisitionItemTo create(RequisitionItemTo itemTo) {
 		
-		RequisitionItemEntity newEntity = mapToEntity(to);
-		this.itemRepository.save(newEntity);
-		return mapToTransferObject(newEntity);
+		RequisitionHeaderEntity reqheader = requisitionRepository.findByReqDesc(itemTo.getRequisitionHeader());
+		
+		RequisitionItemEntity newItem = mapToEntity(itemTo);
+		if(reqheader != null) {
+			newItem.setRequisitionHeader(reqheader);
+		}
+		this.itemRepository.save(newItem);
+		return mapToTransferObject(newItem);
 	}
 
 	private RequisitionItemEntity mapToEntity(RequisitionItemTo to) {
@@ -77,7 +85,7 @@ public class RequisitionItemLogicImpl implements RequisitionItemLogic {
 	}
 
 	@Override
-	public RequisitionItemTo setRelation(RequisitionItemTo source, Object targetObject) {
+	public RequisitionItemTo setRelation(RequisitionItemTo itemTo, Object targetObject) {
 		RequisitionItemTo result = null;
 		return result;
 	}
