@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.mobinv.mobileinventory.common.api.to.RequisitionHeaderTo;
+import com.cg.mobinv.mobileinventory.common.api.to.RequisitionItemTo;
+import com.cg.mobinv.mobileinventory.dataaccess.api.repository.RequisitionHeaderRepository;
 import com.cg.mobinv.mobileinventory.logic.api.RequisitionHeaderLogic;
 
 @RestController
@@ -20,6 +22,9 @@ public class RequisitionHeaderRestService {
 	
 	@Inject
 	private RequisitionHeaderLogic requisitionLogic;
+	
+	@Inject
+	private RequisitionHeaderRepository requisitionRepository;
 	
 	@PostMapping("api/requisitions")
 	public RequisitionHeaderTo addRequisition(@RequestBody RequisitionHeaderTo requisition) {
@@ -44,6 +49,11 @@ public class RequisitionHeaderRestService {
 	@DeleteMapping("api/requisitions/{requisitionId}")
 	public void deleteRequisition(@PathVariable("requisitionId") long id) {
 		requisitionLogic.deleteById(id);
+	}
+	
+	@GetMapping("api/requisitions/{requisitionId}/navToItems")
+	public List<RequisitionItemTo> getItems(@PathVariable("requisitionId") long id) {
+		return requisitionLogic.getRelatedItems(id);
 	}
 
 }

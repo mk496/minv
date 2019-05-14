@@ -1,5 +1,6 @@
 package com.cg.mobinv.mobileinventory.logic.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 import com.cg.mobinv.mobileinventory.common.api.to.RequisitionHeaderTo;
 import com.cg.mobinv.mobileinventory.common.api.to.RequisitionItemTo;
 import com.cg.mobinv.mobileinventory.dataaccess.api.RequisitionHeaderEntity;
+import com.cg.mobinv.mobileinventory.dataaccess.api.RequisitionItemEntity;
 import com.cg.mobinv.mobileinventory.dataaccess.api.repository.RequisitionHeaderRepository;
 import com.cg.mobinv.mobileinventory.logic.api.RequisitionHeaderLogic;
 import com.google.common.collect.Lists;
@@ -69,11 +71,23 @@ public class RequisitionHeaderLogicImpl implements RequisitionHeaderLogic {
 	}
 
 	@Override
-	public RequisitionHeaderTo update(RequisitionHeaderTo to) {
+	public RequisitionHeaderTo update(RequisitionHeaderTo headerTo) {
 
-		RequisitionHeaderEntity entity = mapToEntity(to);
+		RequisitionHeaderEntity entity = mapToEntity(headerTo);
 		this.requisitionRepository.save(entity);
 		return mapToTransferObject(entity);
+	}
+	
+	@Override
+	public List<RequisitionItemTo> getRelatedItems(Long id){
+		RequisitionHeaderEntity headerEntity = requisitionRepository.findOne(id);
+		List<RequisitionItemEntity> relatedItems = headerEntity.getItems();
+		List<RequisitionItemTo> relatedItemsTos = new ArrayList<>();
+		for(RequisitionItemEntity itemEntity : relatedItems) {
+			relatedItemsTos.add(mapper.map(itemEntity, RequisitionItemTo.class));
+		}
+		
+		return relatedItemsTos;
 	}
 
 	@Override
@@ -81,7 +95,7 @@ public class RequisitionHeaderLogicImpl implements RequisitionHeaderLogic {
 		RequisitionHeaderTo result = null;
 		return result;
 	}
-
+	
 	@Override
 	public <S> List<S> readRelatedEntities(RequisitionHeaderTo source, Class<S> targetClass) {
 		List<S> result = null;
