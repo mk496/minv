@@ -59,6 +59,7 @@ public abstract class AbstractWebSecurityConfig extends WebSecurityConfigurerAda
     public void configure(HttpSecurity http) throws Exception {
 
         http.csrf().disable();
+        http.headers().frameOptions().sameOrigin(); //for h2 connection
         //    String[] unsecuredResources =
         // new String[] { "/login", "/security/**", "/services/rest/login", "/services/rest/logout"
         // };

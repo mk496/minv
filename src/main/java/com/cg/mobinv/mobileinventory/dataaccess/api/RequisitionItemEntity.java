@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Nationalized;
 
 @Entity
-@Table(name = "\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem\"")//, uniqueConstraints = @UniqueConstraint(columnNames = {"\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionHeader_id\""}))
+@Table(name = "\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem\"")
 public class RequisitionItemEntity {
 	
 	@javax.persistence.Id
