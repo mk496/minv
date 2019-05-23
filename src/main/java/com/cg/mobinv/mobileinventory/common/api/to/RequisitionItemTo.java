@@ -1,16 +1,11 @@
 package com.cg.mobinv.mobileinventory.common.api.to;
 
-import java.io.Serializable;
-
-import org.apache.olingo.odata2.api.annotation.edm.EdmEntitySet;
-import org.apache.olingo.odata2.api.annotation.edm.EdmEntityType;
-import org.apache.olingo.odata2.api.annotation.edm.EdmKey;
-import org.apache.olingo.odata2.api.annotation.edm.EdmProperty;
+import org.apache.olingo.odata2.api.annotation.edm.*;
 
 @EdmEntityType(name = "RequisitionItem")
 @EdmEntitySet(name = "RequisitionItems")
-public class RequisitionItemTo implements Serializable {
-	
+public class RequisitionItemTo {
+
 
 	@EdmKey
     @EdmProperty
@@ -20,17 +15,17 @@ public class RequisitionItemTo implements Serializable {
 	private String itemDesc;
 	
 	@EdmProperty
-	private int quantity;
+	private Integer quantity;
 	
 	@EdmProperty
 	private String unit;
 	
-	@EdmProperty
-	private String requisitionHeader;
+	@EdmNavigationProperty
+	private RequisitionHeaderTo requisitionHeader;
 
 	public RequisitionItemTo() {}
 
-	public RequisitionItemTo(Long id, String itemDesc, int quantity, String unit) {
+	public RequisitionItemTo(Long id, String itemDesc, Integer quantity, String unit) {
 		this.id = id;
 		this.itemDesc = itemDesc;
 		this.quantity = quantity;
@@ -53,11 +48,11 @@ public class RequisitionItemTo implements Serializable {
 		this.itemDesc = itemDesc;
 	}
 
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
@@ -68,14 +63,14 @@ public class RequisitionItemTo implements Serializable {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-	
-	
-	public String getRequisitionHeader() {
+
+	public RequisitionHeaderTo getRequisitionHeader() {
 		return requisitionHeader;
 	}
 
-	public void setRequisitionHeader(String requisitionHeader) {
+	public void setRequisitionHeader(RequisitionHeaderTo requisitionHeader) {
 		this.requisitionHeader = requisitionHeader;
 	}
+	
 
 }
