@@ -9,6 +9,6 @@ import com.cg.mobinv.mobileinventory.dataaccess.api.RequisitionHeaderEntity;
 @Transactional
 public interface RequisitionHeaderRepository extends JpaRepository<RequisitionHeaderEntity, Long> {
 
-	RequisitionHeaderEntity findByReqDesc(String reqDesc);
+	RequisitionHeaderEntity findByRequisitionDescription(String reqDesc);
 	
 }

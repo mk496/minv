@@ -1,5 +1,7 @@
 package com.cg.mobinv.mobileinventory.dataaccess.api;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,8 +15,10 @@ import org.hibernate.annotations.Nationalized;
 
 @Entity
 @Table(name = "\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem\"")
-public class RequisitionItemEntity {
+public class RequisitionItemEntity implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	@javax.persistence.Id
     @SequenceGenerator(name = "S_RequisitionItem", sequenceName = "\"hkrbudgetingdb.db::S_RequisitionItem\"", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "S_RequisitionItem")
@@ -24,21 +28,20 @@ public class RequisitionItemEntity {
 	@Column(name = "\"ItemDescription\"")
 	private String itemDesc;
 	
-	@Nationalized
 	@Column(name = "\"Quantity\"")
-	private int quantity;
+	private Integer quantity;
 	
 	@Nationalized
 	@Column(name = "\"Unit\"")
 	private String unit;
 	
 	@ManyToOne
-	@JoinColumn(name="requisitionHeader_id")
+	@JoinColumn(name="\"RequisitionHeader.ID\"")
 	private RequisitionHeaderEntity requisitionHeader;
 	
 	public RequisitionItemEntity() {}
 
-	public RequisitionItemEntity(Long id, String itemDesc, int quantity, String unit,
+	public RequisitionItemEntity(Long id, String itemDesc, Integer quantity, String unit,
 			RequisitionHeaderEntity requisitionHeader) {
 		this.id = id;
 		this.itemDesc = itemDesc;
@@ -63,11 +66,11 @@ public class RequisitionItemEntity {
 		this.itemDesc = itemDesc;
 	}
 
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 

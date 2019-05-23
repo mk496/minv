@@ -78,8 +78,7 @@ public class RequisitionHeaderLogicImpl implements RequisitionHeaderLogic {
 		return mapToTransferObject(entity);
 	}
 	
-	@Override
-	public List<RequisitionItemTo> getRelatedItems(Long id){
+	private List<RequisitionItemTo> getRelatedItems(Long id){
 		RequisitionHeaderEntity headerEntity = requisitionRepository.findOne(id);
 		List<RequisitionItemEntity> relatedItems = headerEntity.getItems();
 		List<RequisitionItemTo> relatedItemsTos = new ArrayList<>();
@@ -98,8 +97,8 @@ public class RequisitionHeaderLogicImpl implements RequisitionHeaderLogic {
 	
 	@Override
 	public <S> List<S> readRelatedEntities(RequisitionHeaderTo source, Class<S> targetClass) {
-		List<S> result = null;
-        return result;
+
+        return (List<S>) this.getRelatedItems(source.getId());
 	}
 
 	@Override

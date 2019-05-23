@@ -1,5 +1,6 @@
 package com.cg.mobinv.mobileinventory.dataaccess.api;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -16,8 +17,10 @@ import org.hibernate.annotations.Nationalized;
 
 @Entity
 @Table(name = "\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionHeader\"")
-public class RequisitionHeaderEntity {
+public class RequisitionHeaderEntity implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	@javax.persistence.Id
     @SequenceGenerator(name = "S_RequisitionHeader", sequenceName = "\"hkrbudgetingdb.db::S_RequisitionHeader\"", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "S_RequisitionHeader")
@@ -25,11 +28,10 @@ public class RequisitionHeaderEntity {
 	
 	@Nationalized
 	@Column(name = "\"RequisitionDescription\"")
-	private String reqDesc;
+	private String requisitionDescription;
 	
-	@Nationalized
 	@Column(name = "\"NewAttribute\"")
-	private Integer newAttr;
+	private Integer newAttribute;
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL},
 			mappedBy = "requisitionHeader")
@@ -37,10 +39,13 @@ public class RequisitionHeaderEntity {
 
 	public RequisitionHeaderEntity() {}
 
-	public RequisitionHeaderEntity(Long id, String reqDesc, Integer newAttr, List<RequisitionItemEntity> items) {
+
+	public RequisitionHeaderEntity(Long id, String requisitionDescription, Integer newAttribute,
+			List<RequisitionItemEntity> items) {
+		super();
 		this.id = id;
-		this.reqDesc = reqDesc;
-		this.newAttr = newAttr;
+		this.requisitionDescription = requisitionDescription;
+		this.newAttribute = newAttribute;
 		this.items = items;
 	}
 
@@ -52,20 +57,20 @@ public class RequisitionHeaderEntity {
 		this.id = id;
 	}
 
-	public String getReqDesc() {
-		return reqDesc;
+	public String getRequisitionDescription() {
+		return requisitionDescription;
 	}
 
-	public void setReqDesc(String reqDesc) {
-		this.reqDesc = reqDesc;
+	public void setRequisitionDescription(String requisitionDescription) {
+		this.requisitionDescription = requisitionDescription;
 	}
 
-	public Integer getNewAttr() {
-		return newAttr;
+	public Integer getNewAttribute() {
+		return newAttribute;
 	}
 
-	public void setNewAttr(Integer newAttr) {
-		this.newAttr = newAttr;
+	public void setNewAttribute(Integer newAttribute) {
+		this.newAttribute = newAttribute;
 	}
 
 	public List<RequisitionItemEntity> getItems() {
@@ -75,6 +80,5 @@ public class RequisitionHeaderEntity {
 	public void setItems(List<RequisitionItemEntity> items) {
 		this.items = items;
 	}
-	
 	
 }
