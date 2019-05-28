@@ -6,7 +6,7 @@ import org.apache.olingo.odata2.api.annotation.edm.*;
 
 
 @EdmEntityType(name = "RequisitionHeader")
-@EdmEntitySet(name = "RequisitionHeaders")
+@EdmEntitySet(name = "RequisitionHeaderSet")
 public class RequisitionHeaderTo {
 	
 	@EdmKey

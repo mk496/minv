@@ -16,21 +16,20 @@ import com.google.common.collect.Lists;
 
 @Component
 public class InventoryLogicImpl implements InventoryLogic {
-	
+
 	@Inject
 	private InventoryEntityRepository inventoryEntityRepository;
-	
+
 	@Inject
-    private Mapper mapper;
+	private Mapper mapper;
 
 	@Override
 	public List<InventoryTo> readAll() {
-		List<InventoryEntity> queryResult =
-                Lists.newArrayList(this.inventoryEntityRepository.findAll());
-        List<InventoryTo> resultMapped =
-                queryResult.stream().map(x -> mapToTransferObject(x)).collect(Collectors.toList());
+		List<InventoryEntity> queryResult = Lists.newArrayList(this.inventoryEntityRepository.findAll());
+		List<InventoryTo> resultMapped = queryResult.stream().map(x -> mapToTransferObject(x))
+				.collect(Collectors.toList());
 
-        return resultMapped;
+		return resultMapped;
 	}
 
 	private InventoryTo mapToTransferObject(InventoryEntity entity) {
@@ -48,7 +47,7 @@ public class InventoryLogicImpl implements InventoryLogic {
 
 	@Override
 	public InventoryTo create(InventoryTo inventoryTo) {
-		
+
 		InventoryEntity newEntity = mapToEntity(inventoryTo);
 		this.inventoryEntityRepository.save(newEntity);
 		return mapToTransferObject(newEntity);
@@ -65,33 +64,41 @@ public class InventoryLogicImpl implements InventoryLogic {
 
 	@Override
 	public InventoryTo update(InventoryTo inventoryTo) {
-		InventoryEntity entity = mapToEntity(inventoryTo);
-		this.inventoryEntityRepository.save(entity);
-		return mapToTransferObject(entity);
+
+		if (inventoryTo.getShelfStock() != null) {
+			InventoryEntity entityFromDb = inventoryEntityRepository.findOne(inventoryTo.getId());
+			entityFromDb.setShelfStock(inventoryTo.getShelfStock());
+			this.inventoryEntityRepository.save(entityFromDb);
+			return mapToTransferObject(entityFromDb);
+		} else {
+			InventoryEntity entity = mapToEntity(inventoryTo);
+			this.inventoryEntityRepository.save(entity);
+			return mapToTransferObject(entity);
+		}
 	}
 
 	@Override
 	public InventoryTo setRelation(InventoryTo source, Object targetObject) {
 		InventoryTo result = null;
-  		return result;
+		return result;
 	}
 
 	@Override
 	public <S> List<S> readRelatedEntities(InventoryTo source, Class<S> targetClass) {
 		List<S> result = null;
-        return result;
+		return result;
 	}
 
 	@Override
 	public <S> S readRelatedEntity(InventoryTo source, Class<S> targetClass) {
-		 S result = null;
-	     return result;
+		S result = null;
+		return result;
 	}
 
 	@Override
 	public void deleteById(Long id) {
 		this.inventoryEntityRepository.delete(id);
-		
+
 	}
 
 }
