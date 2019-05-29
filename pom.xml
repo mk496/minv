@@ -4,23 +4,26 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>1</groupId>
-        <artifactId>hkrbudgeting</artifactId>
-        <version>1</version>
+        <artifactId>mobinv</artifactId>
+        <version>1</version>       
     </parent>
-    <groupId>1</groupId>
-    <artifactId>hkrbudgeting-core</artifactId>
+
+   
+    <groupId>2</groupId>
+    <artifactId>mobinv-core</artifactId>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <description>Core of the server for the hkrbudgeting application - a simple example using the Open Application
         Standard Platform for Java (OASP4J).
     </description>
 
+
     <properties>
         <java.version>1.8</java.version>
         <olingo.version>2.0.10</olingo.version>
-        <!-- Not working on HANA XSA. -->
-        <!-- <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
-        <!-- <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding> -->
+<!--         Not working on HANA XSA. -->
+<!--         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
+<!--         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding> -->
     </properties>
 
     <dependencies>
