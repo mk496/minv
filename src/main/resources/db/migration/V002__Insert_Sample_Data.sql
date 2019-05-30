@@ -12,7 +12,7 @@ INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionHeader" (id , "R
 INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionHeader" (id , "RequisitionDescription", "NewAttribute") VALUES (202, 'May Requisitions', 100);
 
 -- RequisitionItem Data
-INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "ItemDescription", "Quantity", "Unit", "RequisitionHeader.ID") VALUES (1, 'Food', 10, 'kg', 201);
-INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "ItemDescription", "Quantity", "Unit", "RequisitionHeader.ID") VALUES (2, 'Devices', 8, '-', 201);
-INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "ItemDescription", "Quantity", "Unit", "RequisitionHeader.ID") VALUES (3, 'Kitchen equipment', 20, 'Pieces', 201);
-INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "ItemDescription", "Quantity", "Unit", "RequisitionHeader.ID") VALUES (4, 'Food', 15, 'kg', 202);
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "ItemDescription", "Quantity", "Unit", "RequisitionHeader.ID") VALUES (10, 'Food', 10, 'kg', 201);
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "ItemDescription", "Quantity", "Unit", "RequisitionHeader.ID") VALUES (20, 'Devices', 8, '-', 201);
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "ItemDescription", "Quantity", "Unit", "RequisitionHeader.ID") VALUES (30, 'Kitchen equipment', 20, 'Pieces', 201);
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "ItemDescription", "Quantity", "Unit", "RequisitionHeader.ID") VALUES (40, 'Food', 15, 'kg', 202);

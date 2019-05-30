@@ -31,7 +31,7 @@ public class AnnotatedClassesConfiguration {
 
     public final String FUNCTION_IMPORT_PACKAGE = "com.cg.mobinv.mobileinventory.service.api";
 
-    public final String REPORTS_FUNCTION_IMPORT_PACKAGE = "com.cg.hkrbudgeting.reportengine.service.api";
+    public final String REPORTS_FUNCTION_IMPORT_PACKAGE = "com.cg.mobinv.mobileinventory.service.api";
     
     public final String ANALYTICS_FUNCTION_IMPORT_PACKAGE = "com.cg.hkrbudgeting.analytics.service.api";
 
