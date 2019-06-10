@@ -16,9 +16,6 @@ public class RequisitionHeaderTo {
 	@EdmProperty
 	private String requisitionDescription;
 	
-	@EdmProperty
-	private Integer newAttribute;
-	
 	@EdmNavigationProperty
 	private List<RequisitionItemTo> toItems;
 	
@@ -26,11 +23,10 @@ public class RequisitionHeaderTo {
 	public RequisitionHeaderTo() {}
 
 
-	public RequisitionHeaderTo(Long id, String requisitionDescription, Integer newAttribute,
+	public RequisitionHeaderTo(Long id, String requisitionDescription,
 			List<RequisitionItemTo> toItems) {
 		this.id = id;
 		this.requisitionDescription = requisitionDescription;
-		this.newAttribute = newAttribute;
 		this.toItems = toItems;
 	}
 
@@ -52,16 +48,6 @@ public class RequisitionHeaderTo {
 
 	public void setRequisitionDescription(String requisitionDescription) {
 		this.requisitionDescription = requisitionDescription;
-	}
-
-
-	public Integer getNewAttribute() {
-		return newAttribute;
-	}
-
-
-	public void setNewAttribute(Integer newAttribute) {
-		this.newAttribute = newAttribute;
 	}
 
 

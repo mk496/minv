@@ -30,9 +30,6 @@ public class RequisitionHeaderEntity implements Serializable {
 	@Column(name = "\"RequisitionDescription\"")
 	private String requisitionDescription;
 	
-	@Column(name = "\"NewAttribute\"")
-	private Integer newAttribute;
-	
 	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL},
 			mappedBy = "requisitionHeader")
 	private List<RequisitionItemEntity> toItems;
@@ -40,11 +37,10 @@ public class RequisitionHeaderEntity implements Serializable {
 	public RequisitionHeaderEntity() {}
 
 
-	public RequisitionHeaderEntity(Long id, String requisitionDescription, Integer newAttribute,
+	public RequisitionHeaderEntity(Long id, String requisitionDescription,
 			List<RequisitionItemEntity> toItems) {
 		this.id = id;
 		this.requisitionDescription = requisitionDescription;
-		this.newAttribute = newAttribute;
 		this.toItems = toItems;
 	}
 
@@ -62,14 +58,6 @@ public class RequisitionHeaderEntity implements Serializable {
 
 	public void setRequisitionDescription(String requisitionDescription) {
 		this.requisitionDescription = requisitionDescription;
-	}
-
-	public Integer getNewAttribute() {
-		return newAttribute;
-	}
-
-	public void setNewAttribute(Integer newAttribute) {
-		this.newAttribute = newAttribute;
 	}
 
 	public List<RequisitionItemEntity> getItems() {
