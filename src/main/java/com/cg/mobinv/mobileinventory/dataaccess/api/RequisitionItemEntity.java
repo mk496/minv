@@ -35,18 +35,22 @@ public class RequisitionItemEntity implements Serializable{
 	@Column(name = "\"Unit\"")
 	private String unit;
 	
+	@Column(name = "\"Inventory_Id\"")
+	private Long inventoryId;
+	
 	@ManyToOne
 	@JoinColumn(name="\"RequisitionHeader.ID\"")
 	private RequisitionHeaderEntity requisitionHeader;
 	
 	public RequisitionItemEntity() {}
 
-	public RequisitionItemEntity(Long id, String itemDesc, Integer quantity, String unit,
+	public RequisitionItemEntity(Long id, String itemDesc, Integer quantity, String unit, Long inventoryId,
 			RequisitionHeaderEntity requisitionHeader) {
 		this.id = id;
 		this.itemDesc = itemDesc;
 		this.quantity = quantity;
 		this.unit = unit;
+		this.inventoryId = inventoryId;
 		this.requisitionHeader = requisitionHeader;
 	}
 
@@ -80,6 +84,14 @@ public class RequisitionItemEntity implements Serializable{
 
 	public void setUnit(String unit) {
 		this.unit = unit;
+	}
+
+	public Long getInventoryId() {
+		return inventoryId;
+	}
+
+	public void setInventoryId(Long inventoryId) {
+		this.inventoryId = inventoryId;
 	}
 
 	public RequisitionHeaderEntity getRequisitionHeader() {

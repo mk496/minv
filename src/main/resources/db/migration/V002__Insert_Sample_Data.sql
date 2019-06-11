@@ -8,8 +8,8 @@ INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Inventory" (id , "ProductDe
 INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Inventory" (id , "ProductDescription", "Price", "Currency", "ShelfStock", "Location", "Image", "Status", "StatusColor", "StoringInstruction", "InStock", "Unit", "LifeRemaining", "LifeRemainingTreshold", "ItemType", "OrderingTreshold") VALUES (1015346, 'Tortilla Chips', '4,99', 'USD', '35', 'Aisle 17, Section 5', 'assets/tortillachips.png', 'In-Stock', 'Success', 'Store in room temperate', '180', 'Boxes', '6 Months', 'Success', 'Non-Perishable', 'Error');
 
 -- RequisitionHeader Data
-INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionHeader" (id , "RequisitionDescription") VALUES (201, 'Friday Requisition');
-INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionHeader" (id , "RequisitionDescription") VALUES (202, 'May Requisitions');
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionHeader" (id , "RequisitionDescription", "RequisitionDate", "RequisitionStatus") VALUES (201, 'Friday Requisition', '2019-06-10', 'Open');
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionHeader" (id , "RequisitionDescription", "RequisitionDate", "RequisitionStatus") VALUES (202, 'May Requisitions', '2019-06-01', 'Closed');
 
 -- RequisitionItem Data
 INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "ItemDescription", "Quantity", "Unit", "RequisitionHeader.ID") VALUES (10, 'Food', 10, 'kg', 201);
