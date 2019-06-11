@@ -1,14 +1,11 @@
 package com.cg.mobinv.mobileinventory.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import org.apache.olingo.odata2.api.annotation.edm.EdmFunctionImport;
-import org.apache.olingo.odata2.api.annotation.edm.EdmFunctionImport.HttpMethod;
-import org.apache.olingo.odata2.api.annotation.edm.EdmFunctionImport.ReturnType;
-import org.apache.olingo.odata2.api.annotation.edm.EdmFunctionImport.ReturnType.Type;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +13,7 @@ import com.cg.mobinv.mobileinventory.common.api.to.RequisitionHeaderTo;
 import com.cg.mobinv.mobileinventory.dataaccess.api.InventoryEntity;
 import com.cg.mobinv.mobileinventory.dataaccess.api.RequisitionHeaderEntity;
 import com.cg.mobinv.mobileinventory.dataaccess.api.RequisitionItemEntity;
+import com.cg.mobinv.mobileinventory.dataaccess.api.enums.Status;
 import com.cg.mobinv.mobileinventory.dataaccess.api.repository.InventoryEntityRepository;
 import com.cg.mobinv.mobileinventory.dataaccess.api.repository.RequisitionHeaderRepository;
 import com.cg.mobinv.mobileinventory.dataaccess.api.repository.RequisitionItemRepository;
@@ -43,25 +41,45 @@ public class RequisitionServiceImpl implements RequisitionService {
 		List<InventoryEntity> inventoryFromDb = inventoryRepository.findAll();
 		List<InventoryEntity> inventoryToOrder = new ArrayList<>();
 		for (InventoryEntity inventory : inventoryFromDb) {
-			if (Integer.parseInt(inventory.getShelfStock()) < threshold) {
+			if (Integer.parseInt(inventory.getShelfStock()) < threshold
+					&& Integer.parseInt(inventory.getInStock()) > Integer.parseInt(inventory.getShelfStock())
+					&& !isOrdered(inventory)) {
 				inventoryToOrder.add(inventory);
 			}
 		}
 		if (!inventoryToOrder.isEmpty()) {
 			RequisitionHeaderEntity newRequisition = new RequisitionHeaderEntity();
 			newRequisition.setRequisitionDescription("Probne zamowienie");
-			headerRepository.saveAndFlush(newRequisition);
+			newRequisition.setRequisitionDate(new Date());
+			newRequisition.setRequisitionStatus(Status.Open);
+			headerRepository.save(newRequisition);
+			RequisitionItemEntity newItem;
 			for (InventoryEntity inventory : inventoryToOrder) {
-				RequisitionItemEntity newItem = new RequisitionItemEntity();
-				newItem.setItemDesc(inventory.getProductDescription());
-				int quantity = Integer.parseInt(inventory.getInStock()) - Integer.parseInt(inventory.getShelfStock());
-				newItem.setQuantity(quantity);
+				newItem = createItem(inventory);
 				newItem.setRequisitionHeader(newRequisition);
 				itemsRepository.save(newItem);
 			}
 			return mapper.map(newRequisition, RequisitionHeaderTo.class);
 		}
 		return null;
+	}
+
+	private RequisitionItemEntity createItem(InventoryEntity inventory) {
+		RequisitionItemEntity item = new RequisitionItemEntity();
+		item.setInventoryId(inventory.getId());
+		item.setItemDesc(inventory.getProductDescription());
+		int quantity = Integer.parseInt(inventory.getInStock()) - Integer.parseInt(inventory.getShelfStock());
+		item.setQuantity(quantity);
+		item.setUnit(inventory.getUnit());
+		return item;
+	}
+
+	private boolean isOrdered(InventoryEntity inventory) {
+		RequisitionItemEntity item = itemsRepository.findByInventoryId(inventory.getId());
+		if (item != null && item.getRequisitionHeader().getRequisitionStatus().equals(Status.Open)) {
+			return true;
+		}
+		return false;
 	}
 
 }

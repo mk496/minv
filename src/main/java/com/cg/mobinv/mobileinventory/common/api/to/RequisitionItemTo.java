@@ -20,16 +20,21 @@ public class RequisitionItemTo {
 	@EdmProperty
 	private String unit;
 	
+	@EdmProperty
+	private Long inventoryId;
+	
 	@EdmNavigationProperty
 	private RequisitionHeaderTo requisitionHeader;
 
 	public RequisitionItemTo() {}
 
-	public RequisitionItemTo(Long id, String itemDesc, Integer quantity, String unit) {
-		this.id = id;
+	public RequisitionItemTo(Long id, String itemDesc, Integer quantity, String unit, Long inventoryId,
+			RequisitionHeaderTo requisitionHeader) {
 		this.itemDesc = itemDesc;
 		this.quantity = quantity;
 		this.unit = unit;
+		this.inventoryId = inventoryId;
+		this.requisitionHeader = requisitionHeader;
 	}
 
 	public Long getId() {
@@ -62,6 +67,14 @@ public class RequisitionItemTo {
 
 	public void setUnit(String unit) {
 		this.unit = unit;
+	}
+
+	public Long getInventoryId() {
+		return inventoryId;
+	}
+
+	public void setInventoryId(Long inventoryId) {
+		this.inventoryId = inventoryId;
 	}
 
 	public RequisitionHeaderTo getRequisitionHeader() {
