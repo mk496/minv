@@ -2,13 +2,7 @@ package com.cg.mobinv.mobileinventory.common.api.to;
 
 import java.util.Date;
 import java.util.List;
-
-import org.apache.olingo.odata2.api.annotation.edm.EdmEntitySet;
-import org.apache.olingo.odata2.api.annotation.edm.EdmEntityType;
-import org.apache.olingo.odata2.api.annotation.edm.EdmKey;
-import org.apache.olingo.odata2.api.annotation.edm.EdmNavigationProperty;
-import org.apache.olingo.odata2.api.annotation.edm.EdmProperty;
-
+import org.apache.olingo.odata2.api.annotation.edm.*;
 import com.cg.mobinv.mobileinventory.dataaccess.api.enums.Status;
 
 
