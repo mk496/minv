@@ -1,9 +1,23 @@
 package com.cg.mobinv.mobileinventory.dataaccess.api;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.*;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Nationalized;
 
@@ -25,7 +39,7 @@ public class RequisitionHeaderEntity implements Serializable {
 	private String requisitionDescription;
 	
 	@Column(name = "\"RequisitionDate\"")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date requisitionDate;
 
 	@Column(name = "\"RequisitionStatus\"")

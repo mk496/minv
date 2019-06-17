@@ -75,11 +75,15 @@ public class RequisitionServiceImpl implements RequisitionService {
 	}
 
 	private boolean isOrdered(InventoryEntity inventory) {
-		RequisitionItemEntity item = itemsRepository.findByInventoryId(inventory.getId());
-		if (item != null && item.getRequisitionHeader().getRequisitionStatus().equals(Status.Open)) {
-			return true;
+		List<RequisitionItemEntity> items = itemsRepository.findByInventoryId(inventory.getId());
+		boolean isOrdered = false;
+		for (RequisitionItemEntity item : items) {
+			if (item != null && item.getRequisitionHeader().getRequisitionStatus().equals(Status.Open)) {
+				isOrdered = true;
+				break;
+			}
 		}
-		return false;
+		return isOrdered;
 	}
 
 }
