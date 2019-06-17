@@ -1,7 +1,7 @@
 -- Material Data
-INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Material" (id , "Description", "Identifier") VALUES (101, 'Milk', '30');
-INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Material" (id , "Description", "Identifier") VALUES (102, 'Toner', '31');
-INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Material" (id , "Description", "Identifier") VALUES (103, 'Kawa Lavazza1','33');
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Material" (id , "MaterialDescription", "Number", "ExpirationDays", "ExpirationType") VALUES (101, 'Food', 30, 10, 'Perishable');
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Material" (id , "MaterialDescription", "Number", "ExpirationDays", "ExpirationType") VALUES (102, 'Kitchen', 31, 5, 'Perishable');
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Material" (id , "MaterialDescription", "Number", "ExpirationDays", "ExpirationType") VALUES (103, 'Printers', 33, 200, 'Non_Perishable');
 
 -- Inventory Data
 INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Inventory" (id , "ProductDescription", "Price", "Currency", "ShelfStock", "Location", "Image", "Status", "StatusColor", "StoringInstruction", "InStock", "Unit", "LifeRemaining", "LifeRemainingTreshold", "ItemType", "OrderingTreshold") VALUES (00002364, 'Broccoli Crowns', '2,99', 'USD', '27', 'Aisle 3, Section 5', 'assets/broccolli.png', 'Deteriorating', 'Error', 'Keep humidity level between 15% to 35%. Temperature between 3 - 6 °C', '190', 'Bags', '13%', 'Error', 'Perishable', 'Success');
