@@ -1,5 +1,7 @@
 package com.cg.mobinv.mobileinventory.dataaccess.api.repository;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,5 +16,5 @@ public interface RequisitionItemRepository extends JpaRepository<RequisitionItem
 	@Query("select item from RequisitionItemEntity item where item.itemDesc = :itemDesc and item.requisitionHeader.requisitionDescription = :requisitionDescription")
 	RequisitionItemEntity findByItemDescAndReqDesc(@Param("itemDesc") String itemDesc, @Param("requisitionDescription") String requisitionDescription);
 
-	RequisitionItemEntity findByInventoryId(Long id);
+	List<RequisitionItemEntity> findByInventoryId(Long id);
 }

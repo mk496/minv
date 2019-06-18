@@ -3,48 +3,64 @@ package com.cg.mobinv.mobileinventory.common.api.to;
 import org.apache.olingo.odata2.api.annotation.edm.*;
 
 @EdmEntityType(name = "Material")
-@EdmEntitySet(name = "Materials")
+@EdmEntitySet(name = "MaterialSet")
 public class MaterialTo {
 
-    @EdmKey
-    @EdmProperty
-    private Long id;
+	@EdmKey
+	@EdmProperty
+	private Long id;
 
-    @EdmProperty
-    private String description;
+	@EdmProperty
+	private String materialDescription;
 
-    @EdmProperty
-    private String identifier;
+	@EdmProperty
+	private Integer number;
 
-    public Long getId() {
+	@EdmProperty
+	private Integer expirationDays;
+	
+	@EdmProperty
+	private String expirationType;
 
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-        this.id = id;
-    }
+	public String getMaterialDesc() {
+		return materialDescription;
+	}
 
-    public String getDescription() {
+	public void setMaterialDesc(String materialDescription) {
+		this.materialDescription = materialDescription;
+	}
 
-        return description;
-    }
+	public Integer getNumber() {
+		return number;
+	}
 
-    public void setDescription(String description) {
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
 
-        this.description = description;
-    }
+	public Integer getExpirationDays() {
+		return expirationDays;
+	}
 
-    public String getIdentifier() {
+	public void setExpirationDays(Integer expirationDays) {
+		this.expirationDays = expirationDays;
+	}
 
-        return identifier;
-    }
+	public String getExpirationType() {
+		return expirationType;
+	}
 
-    public void setIdentifier(String identifier) {
+	public void setExpirationType(String expirationType) {
+		this.expirationType = expirationType;
+	}
 
-        this.identifier = identifier;
-    }
-
-
+	
 }
