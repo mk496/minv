@@ -13,7 +13,6 @@ import com.cg.mobinv.mobileinventory.common.api.to.RequisitionHeaderTo;
 import com.cg.mobinv.mobileinventory.dataaccess.api.InventoryEntity;
 import com.cg.mobinv.mobileinventory.dataaccess.api.RequisitionHeaderEntity;
 import com.cg.mobinv.mobileinventory.dataaccess.api.RequisitionItemEntity;
-import com.cg.mobinv.mobileinventory.dataaccess.api.enums.Status;
 import com.cg.mobinv.mobileinventory.dataaccess.api.repository.InventoryEntityRepository;
 import com.cg.mobinv.mobileinventory.dataaccess.api.repository.RequisitionHeaderRepository;
 import com.cg.mobinv.mobileinventory.dataaccess.api.repository.RequisitionItemRepository;
@@ -51,7 +50,7 @@ public class RequisitionServiceImpl implements RequisitionService {
 			RequisitionHeaderEntity newRequisition = new RequisitionHeaderEntity();
 			newRequisition.setRequisitionDescription("Probne zamowienie");
 			newRequisition.setRequisitionDate(new Date());
-			newRequisition.setRequisitionStatus(Status.Open);
+			newRequisition.setRequisitionStatus("Open");
 			headerRepository.save(newRequisition);
 			RequisitionItemEntity newItem;
 			for (InventoryEntity inventory : inventoryToOrder) {
@@ -78,7 +77,7 @@ public class RequisitionServiceImpl implements RequisitionService {
 		List<RequisitionItemEntity> items = itemsRepository.findByInventoryId(inventory.getId());
 		boolean isOrdered = false;
 		for (RequisitionItemEntity item : items) {
-			if (item != null && item.getRequisitionHeader().getRequisitionStatus().equals(Status.Open)) {
+			if (item != null && item.getRequisitionHeader().getRequisitionStatus().equals("Open")) {
 				isOrdered = true;
 				break;
 			}

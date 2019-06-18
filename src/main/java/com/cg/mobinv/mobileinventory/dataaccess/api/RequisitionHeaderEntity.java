@@ -3,10 +3,10 @@ package com.cg.mobinv.mobileinventory.dataaccess.api;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.*;
-import org.hibernate.annotations.Nationalized;
 
-import com.cg.mobinv.mobileinventory.dataaccess.api.enums.Status;
+import javax.persistence.*;
+
+import org.hibernate.annotations.Nationalized;
 
 @Entity
 @Table(name = "\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionHeader\"")
@@ -27,9 +27,9 @@ public class RequisitionHeaderEntity implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date requisitionDate;
 
+	@Nationalized
 	@Column(name = "\"RequisitionStatus\"")
-	@Enumerated(EnumType.STRING)
-	private Status requisitionStatus;
+	private String requisitionStatus;
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL},
 			mappedBy = "requisitionHeader")
@@ -38,7 +38,7 @@ public class RequisitionHeaderEntity implements Serializable {
 	public RequisitionHeaderEntity() {}
 
 	public RequisitionHeaderEntity(Long id, String requisitionDescription, Date requisitionDate,
-			Status requisitionStatus, List<RequisitionItemEntity> toItems) {
+			String requisitionStatus, List<RequisitionItemEntity> toItems) {
 		this.id = id;
 		this.requisitionDescription = requisitionDescription;
 		this.requisitionDate = requisitionDate;
@@ -70,11 +70,11 @@ public class RequisitionHeaderEntity implements Serializable {
 		this.requisitionDate = requisitionDate;
 	}
 
-	public Status getRequisitionStatus() {
+	public String getRequisitionStatus() {
 		return requisitionStatus;
 	}
 
-	public void setRequisitionStatus(Status requisitionStatus) {
+	public void setRequisitionStatus(String requisitionStatus) {
 		this.requisitionStatus = requisitionStatus;
 	}
 

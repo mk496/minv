@@ -4,8 +4,6 @@ import javax.persistence.*;
 
 import org.hibernate.annotations.Nationalized;
 
-import com.cg.mobinv.mobileinventory.dataaccess.api.enums.ExpirationType;
-
 @Entity
 @Table(name = "\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.Material\"")
 public class MaterialEntity {
@@ -25,9 +23,9 @@ public class MaterialEntity {
     @Column(name = "\"ExpirationDays\"")
     private Integer expirationDays;
     
+    @Nationalized
     @Column(name = "\"ExpirationType\"")
-	@Enumerated(EnumType.STRING)
-	private ExpirationType expirationType;
+	private String expirationType;
 
 	public Long getId() {
 		return id;
@@ -61,11 +59,11 @@ public class MaterialEntity {
 		this.expirationDays = expirationDays;
 	}
 
-	public ExpirationType getExpirationType() {
+	public String getExpirationType() {
 		return expirationType;
 	}
 
-	public void setExpirationType(ExpirationType expirationType) {
+	public void setExpirationType(String expirationType) {
 		this.expirationType = expirationType;
 	}
 

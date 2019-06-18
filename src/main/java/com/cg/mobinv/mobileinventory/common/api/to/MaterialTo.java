@@ -2,8 +2,6 @@ package com.cg.mobinv.mobileinventory.common.api.to;
 
 import org.apache.olingo.odata2.api.annotation.edm.*;
 
-import com.cg.mobinv.mobileinventory.dataaccess.api.enums.ExpirationType;
-
 @EdmEntityType(name = "Material")
 @EdmEntitySet(name = "MaterialSet")
 public class MaterialTo {
@@ -22,7 +20,7 @@ public class MaterialTo {
 	private Integer expirationDays;
 	
 	@EdmProperty
-	private ExpirationType expirationType;
+	private String expirationType;
 
 	public Long getId() {
 		return id;
@@ -56,11 +54,11 @@ public class MaterialTo {
 		this.expirationDays = expirationDays;
 	}
 
-	public ExpirationType getExpirationType() {
+	public String getExpirationType() {
 		return expirationType;
 	}
 
-	public void setExpirationType(ExpirationType expirationType) {
+	public void setExpirationType(String expirationType) {
 		this.expirationType = expirationType;
 	}
 
