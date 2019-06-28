@@ -64,17 +64,9 @@ public class InventoryLogicImpl implements InventoryLogic {
 
 	@Override
 	public InventoryTo update(InventoryTo inventoryTo) {
-
-		if (inventoryTo.getShelfStock() != null) {
-			InventoryEntity entityFromDb = inventoryEntityRepository.findOne(inventoryTo.getId());
-			entityFromDb.setShelfStock(inventoryTo.getShelfStock());
-			this.inventoryEntityRepository.save(entityFromDb);
-			return mapToTransferObject(entityFromDb);
-		} else {
-			InventoryEntity entity = mapToEntity(inventoryTo);
-			this.inventoryEntityRepository.save(entity);
-			return mapToTransferObject(entity);
-		}
+		InventoryEntity entity = mapToEntity(inventoryTo);
+		this.inventoryEntityRepository.save(entity);
+		return mapToTransferObject(entity);
 	}
 
 	@Override
