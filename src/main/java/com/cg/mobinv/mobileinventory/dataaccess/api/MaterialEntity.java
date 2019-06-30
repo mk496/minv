@@ -1,16 +1,12 @@
 package com.cg.mobinv.mobileinventory.dataaccess.api;
 
-import org.hibernate.annotations.Nationalized;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
+import org.hibernate.annotations.Nationalized;
 
 @Entity
 @Table(name = "\"hkrbudgetingdb.db.dbmodel::hkrbudgeting.Material\"")
 public class MaterialEntity {
-
-    private static final long serialVersionUID = 1L;
 
     @javax.persistence.Id
     @SequenceGenerator(name = "S_Material", sequenceName = "\"hkrbudgetingdb.db::S_Material\"", allocationSize = 1)
@@ -18,40 +14,58 @@ public class MaterialEntity {
     private Long id;
 
     @Nationalized
-    @Column(name = "\"Description\"", length = 256)
-    private String description;
+    @Column(name = "\"MaterialDescription\"")
+    private String materialDescription;
 
+    @Column(name = "\"Number\"")
+    private Integer number;
+    
+    @Column(name = "\"ExpirationDays\"")
+    private Integer expirationDays;
+    
     @Nationalized
-    @Column(name = "\"Identifier\"", length = 512)
-    private String identifier;
+    @Column(name = "\"ExpirationType\"")
+	private String expirationType;
 
-    public Long getId() {
+	public Long getId() {
+		return id;
+	}
 
-        return id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setId(Long id) {
+	public String getMaterialDesc() {
+		return materialDescription;
+	}
 
-        this.id = id;
-    }
+	public void setMaterialDesc(String materialDescription) {
+		this.materialDescription = materialDescription;
+	}
 
-    public String getDescription() {
+	public Integer getNumber() {
+		return number;
+	}
 
-        return description;
-    }
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
 
-    public void setDescription(String description) {
+	public Integer getExpirationDays() {
+		return expirationDays;
+	}
 
-        this.description = description;
-    }
+	public void setExpirationDays(Integer expirationDays) {
+		this.expirationDays = expirationDays;
+	}
 
-    public String getIdentifier() {
+	public String getExpirationType() {
+		return expirationType;
+	}
 
-        return identifier;
-    }
+	public void setExpirationType(String expirationType) {
+		this.expirationType = expirationType;
+	}
 
-    public void setIdentifier(String identifier) {
-
-        this.identifier = identifier;
-    }
+  
 }

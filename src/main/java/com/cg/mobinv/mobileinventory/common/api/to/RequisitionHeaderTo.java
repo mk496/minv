@@ -2,15 +2,7 @@ package com.cg.mobinv.mobileinventory.common.api.to;
 
 import java.util.Date;
 import java.util.List;
-
-import org.apache.olingo.odata2.api.annotation.edm.EdmEntitySet;
-import org.apache.olingo.odata2.api.annotation.edm.EdmEntityType;
-import org.apache.olingo.odata2.api.annotation.edm.EdmKey;
-import org.apache.olingo.odata2.api.annotation.edm.EdmNavigationProperty;
-import org.apache.olingo.odata2.api.annotation.edm.EdmProperty;
-
-import com.cg.mobinv.mobileinventory.dataaccess.api.enums.Status;
-
+import org.apache.olingo.odata2.api.annotation.edm.*;
 
 @EdmEntityType(name = "RequisitionHeader")
 @EdmEntitySet(name = "RequisitionHeaderSet")
@@ -27,14 +19,14 @@ public class RequisitionHeaderTo {
 	private Date requisitionDate;
 	
 	@EdmProperty
-	private Status requisitionStatus;
+	private String requisitionStatus;
 	
 	@EdmNavigationProperty
 	private List<RequisitionItemTo> toItems;
 	
 	public RequisitionHeaderTo() {}
 
-	public RequisitionHeaderTo(Long id, String requisitionDescription, Date requisitionDate, Status requisitionStatus,
+	public RequisitionHeaderTo(Long id, String requisitionDescription, Date requisitionDate, String requisitionStatus,
 			List<RequisitionItemTo> toItems) {
 		this.id = id;
 		this.requisitionDescription = requisitionDescription;
@@ -67,11 +59,11 @@ public class RequisitionHeaderTo {
 		this.requisitionDate = requisitionDate;
 	}
 
-	public Status getRequisitionStatus() {
+	public String getRequisitionStatus() {
 		return requisitionStatus;
 	}
 
-	public void setRequisitionStatus(Status requisitionStatus) {
+	public void setRequisitionStatus(String requisitionStatus) {
 		this.requisitionStatus = requisitionStatus;
 	}
 
