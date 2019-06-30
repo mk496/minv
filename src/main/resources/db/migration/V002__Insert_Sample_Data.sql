@@ -22,3 +22,8 @@ INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "Item
 INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "ItemDescription", "Quantity", "Unit", "RequisitionHeader.ID") VALUES (20, 'Devices', 8, '-', 201);
 INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "ItemDescription", "Quantity", "Unit", "RequisitionHeader.ID") VALUES (30, 'Kitchen equipment', 20, 'Pieces', 201);
 INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "ItemDescription", "Quantity", "Unit", "RequisitionHeader.ID") VALUES (40, 'Food', 15, 'kg', 202);
+
+-- Locations Data
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Locations" (id , "LocationDescription", "Building", "Stock", "Room") VALUES (01, 'BG Piêtro 5 Kuchnia niebieska', 'BG', 'Piêtro 5', 'Kuchnia niebieska');
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Locations" (id , "LocationDescription", "Building", "Stock", "Room") VALUES (02, 'BG Piêtro 5 Kuchnia ¿ó³ta', 'BG', 'Piêtro 5', 'Kuchnia ¿ó³ta');
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Locations" (id , "LocationDescription", "Building", "Stock", "Room") VALUES (03, 'BG Piêtro 5 Kuchnia zielona', 'BG', 'Piêtro 5', 'Kuchnia zielona');
