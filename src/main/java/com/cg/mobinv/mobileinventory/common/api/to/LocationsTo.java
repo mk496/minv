@@ -17,18 +17,18 @@ public class LocationsTo {
 	private String building;
 	
 	@EdmProperty
-	private String stock;
+	private String floor;
 	
 	@EdmProperty
 	private String room;
 	
 	public LocationsTo() {}
 	
-	public LocationsTo(Long id, String locationDescription, String building, String stock, String room) {
+	public LocationsTo(Long id, String locationDescription, String building, String floor, String room) {
 		this.id = id;
 		this.locationDescription = locationDescription;
 		this.building = building;
-		this.stock = stock;
+		this.floor = floor;
 		this.room = room;
 	}
 	
@@ -57,12 +57,12 @@ public class LocationsTo {
 		this.building = building;
 	}
 
-	public String getStock() {
-		return stock;
+	public String getFloor() {
+		return floor;
 	}
 
-	public void setStock(String stock) {
-		this.stock = stock;
+	public void setFloor(String floor) {
+		this.floor = floor;
 	}
 
 	public String getRoom() {

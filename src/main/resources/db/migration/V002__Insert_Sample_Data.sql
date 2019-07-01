@@ -24,6 +24,6 @@ INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "Item
 INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.RequisitionItem" (id, "ItemDescription", "Quantity", "Unit", "RequisitionHeader.ID") VALUES (40, 'Food', 15, 'kg', 202);
 
 -- Locations Data
-INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Locations" (id , "LocationDescription", "Building", "Stock", "Room") VALUES (01, 'BG Piêtro 5 Kuchnia niebieska', 'BG', 'Piêtro 5', 'Kuchnia niebieska');
-INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Locations" (id , "LocationDescription", "Building", "Stock", "Room") VALUES (02, 'BG Piêtro 5 Kuchnia ¿ó³ta', 'BG', 'Piêtro 5', 'Kuchnia ¿ó³ta');
-INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Locations" (id , "LocationDescription", "Building", "Stock", "Room") VALUES (03, 'BG Piêtro 5 Kuchnia zielona', 'BG', 'Piêtro 5', 'Kuchnia zielona');
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Locations" (id , "LocationDescription", "Building", "Floor", "Room") VALUES (01, 'BG F.5 K.B', 'BG', 'Floor 5', 'Kitchen blue');
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Locations" (id , "LocationDescription", "Building", "Floor", "Room") VALUES (02, 'BG F.5 K.Y', 'BG', 'Floor 5', 'Kitchen yellow');
+INSERT INTO "hkrbudgetingdb.db.dbmodel::hkrbudgeting.Locations" (id , "LocationDescription", "Building", "Floor", "Room") VALUES (03, 'BG F.5 K.G', 'BG', 'Floor 5', 'Kitchen green');

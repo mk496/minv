@@ -22,8 +22,8 @@ public class LocationsEntity {
 	private String building;
 	
 	@Nationalized
-	@Column(name = "\"Stock\"")
-	private String stock;
+	@Column(name = "\"Floor\"")
+	private String floor;
 	
 	@Nationalized
 	@Column(name = "\"Room\"")
@@ -31,11 +31,11 @@ public class LocationsEntity {
 	
 	public LocationsEntity() {}
 	
-	public LocationsEntity(Long id, String locationDescription, String building, String stock, String room) {
+	public LocationsEntity(Long id, String locationDescription, String building, String floor, String room) {
 		this.id = id;
 		this.locationDescritpion = locationDescription;
 		this.building = building;
-		this.stock = stock;
+		this.floor = floor;
 		this.room = room;
 	}
 
@@ -47,11 +47,11 @@ public class LocationsEntity {
 		this.id = id;
 	}
 
-	public String getLocationDesc() {
+	public String getLocationDescription() {
 		return locationDescritpion;
 	}
 
-	public void setLocationDesc(String locationDesc) {
+	public void setLocationDescription(String locationDesc) {
 		this.locationDescritpion = locationDesc;
 	}
 
@@ -63,12 +63,12 @@ public class LocationsEntity {
 		this.building = building;
 	}
 
-	public String getStock() {
-		return stock;
+	public String getFloor() {
+		return floor;
 	}
 
-	public void setStock(String stock) {
-		this.stock = stock;
+	public void setFloor(String stock) {
+		this.floor = stock;
 	}
 
 	public String getRoom() {
