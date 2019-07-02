@@ -14,9 +14,6 @@ public class MaterialTo {
 	private String materialDescription;
 
 	@EdmProperty
-	private Integer number;
-
-	@EdmProperty
 	private Integer expirationDays;
 	
 	@EdmProperty
@@ -36,14 +33,6 @@ public class MaterialTo {
 
 	public void setMaterialDesc(String materialDescription) {
 		this.materialDescription = materialDescription;
-	}
-
-	public Integer getNumber() {
-		return number;
-	}
-
-	public void setNumber(Integer number) {
-		this.number = number;
 	}
 
 	public Integer getExpirationDays() {
