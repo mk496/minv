@@ -16,9 +16,6 @@ public class MaterialEntity {
     @Nationalized
     @Column(name = "\"MaterialDescription\"")
     private String materialDescription;
-
-    @Column(name = "\"Number\"")
-    private Integer number;
     
     @Column(name = "\"ExpirationDays\"")
     private Integer expirationDays;
@@ -41,14 +38,6 @@ public class MaterialEntity {
 
 	public void setMaterialDesc(String materialDescription) {
 		this.materialDescription = materialDescription;
-	}
-
-	public Integer getNumber() {
-		return number;
-	}
-
-	public void setNumber(Integer number) {
-		this.number = number;
 	}
 
 	public Integer getExpirationDays() {
