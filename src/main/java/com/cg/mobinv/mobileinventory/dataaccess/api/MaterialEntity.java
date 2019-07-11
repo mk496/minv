@@ -17,12 +17,17 @@ public class MaterialEntity {
     @Column(name = "\"MaterialDescription\"")
     private String materialDescription;
     
+    @Nationalized
     @Column(name = "\"ExpirationDays\"")
-    private Integer expirationDays;
+    private String expirationDays;
     
     @Nationalized
     @Column(name = "\"ExpirationType\"")
 	private String expirationType;
+    
+    @Nationalized
+	@Column(name = "\"OrderingTreshold\"")
+	private String treshold;
 
 	public Long getId() {
 		return id;
@@ -32,19 +37,11 @@ public class MaterialEntity {
 		this.id = id;
 	}
 
-	public String getMaterialDesc() {
-		return materialDescription;
-	}
-
-	public void setMaterialDesc(String materialDescription) {
-		this.materialDescription = materialDescription;
-	}
-
-	public Integer getExpirationDays() {
+	public String getExpirationDays() {
 		return expirationDays;
 	}
 
-	public void setExpirationDays(Integer expirationDays) {
+	public void setExpirationDays(String expirationDays) {
 		this.expirationDays = expirationDays;
 	}
 
@@ -56,5 +53,20 @@ public class MaterialEntity {
 		this.expirationType = expirationType;
 	}
 
+	public String getMaterialDescription() {
+		return materialDescription;
+	}
+
+	public void setMaterialDescription(String materialDescription) {
+		this.materialDescription = materialDescription;
+	}
+
+	public String getTreshold() {
+		return treshold;
+	}
+
+	public void setTreshold(String treshold) {
+		this.treshold = treshold;
+	}
   
 }

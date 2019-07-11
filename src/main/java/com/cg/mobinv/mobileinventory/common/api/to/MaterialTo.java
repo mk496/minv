@@ -14,10 +14,13 @@ public class MaterialTo {
 	private String materialDescription;
 
 	@EdmProperty
-	private Integer expirationDays;
+	private String expirationDays;
 	
 	@EdmProperty
 	private String expirationType;
+	
+	@EdmProperty
+	private String treshold;
 
 	public Long getId() {
 		return id;
@@ -27,19 +30,11 @@ public class MaterialTo {
 		this.id = id;
 	}
 
-	public String getMaterialDesc() {
-		return materialDescription;
-	}
-
-	public void setMaterialDesc(String materialDescription) {
-		this.materialDescription = materialDescription;
-	}
-
-	public Integer getExpirationDays() {
+	public String getExpirationDays() {
 		return expirationDays;
 	}
 
-	public void setExpirationDays(Integer expirationDays) {
+	public void setExpirationDays(String expirationDays) {
 		this.expirationDays = expirationDays;
 	}
 
@@ -51,5 +46,20 @@ public class MaterialTo {
 		this.expirationType = expirationType;
 	}
 
+	public String getMaterialDescription() {
+		return materialDescription;
+	}
+
+	public void setMaterialDescription(String materialDescription) {
+		this.materialDescription = materialDescription;
+	}
+
+	public String getTreshold() {
+		return treshold;
+	}
+
+	public void setTreshold(String treshold) {
+		this.treshold = treshold;
+	}
 	
 }
