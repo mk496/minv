@@ -55,11 +55,11 @@ public class BeanJPAConfiguration {
 
         String VCAP_SERVICES = System.getenv("VCAP_SERVICES");
 
-        if (checkVCAP(VCAP_SERVICES)) {
-            setDataSourcePropertiesFromVCAP(VCAP_SERVICES);
-        } else {
+//        if (checkVCAP(VCAP_SERVICES)) {
+//            setDataSourcePropertiesFromVCAP(VCAP_SERVICES);
+//        } else {
             setDataSourcePropertiesFromPropertyFile();
-        }
+//        }
 
         return DataSourceBuilder.create().username(this.username).password(this.password).url(this.url)
                 .driverClassName(this.driverClassName).build();
